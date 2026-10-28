@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Casa en Costa</title>
+<meta name="description" content="Casa de alquiler vacacional para 8 personas en Barrio Senderos 3, Costa Esmeralda. Consultá tarifas y disponibilidad.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Casa en Costa · Alquiler en Costa Esmeralda">
+<meta property="og:description" content="Casa para 8 personas con parrilla y parque en Barrio Senderos 3, Costa Esmeralda. Consultá tarifas y disponibilidad.">
+<meta property="og:url" content="https://casaencosta.com.ar/">
+<meta property="og:image" content="https://casaencosta.com.ar/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="canonical" href="https://casaencosta.com.ar/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: tema claro de playa. Cielo suave arriba, secciones que alternan entre blanco y arena
+   con textura de granos y olas en los bordes, huellas que guían hacia la consulta, caracoles en las
+   esquinas y dos fotos tipo polaroid que flotan al hacer scroll. Una columna en celular, columnas desde 700px. */
+:root{
+  color-scheme:light;
+  --bg:#FFFDF8;
+  --surface:#FFFFFF;
+  --sand:#F5EBD8;
+  --sand-deep:#E6D4B0;
+  --sea-wash:#E2F0F2;
+  --line:#E4DAC6;
+  --fg:#22333B;
+  --muted:#58666D;
+  --accent:#2E6A7E;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#D8ECEF;
+  --wa:#1A7C47;
+  --wa-ink:#FFFFFF;
+  --grain:rgba(150,118,70,.30);
+  --todo-bg:#FFE49A;
+  --todo-fg:#583F00;
+  --lb-bg:#0F1315;
+  --lb-fg:#F2F1EC;
+  --font-display:'Instrument Serif','Iowan Old Style',Georgia,serif;
+  --font-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --gutter:20px;
+  --maxw:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.lb-open{overflow:hidden}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);position:relative}
+.ic{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(3.4rem,15vw,6.4rem)}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-size:clamp(2.1rem,7vw,3.4rem)}
+h3{font-size:1.65rem}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+
+mark.todo{background:var(--todo-bg);color:var(--todo-fg);padding:.08em .45em;border-radius:3px;font-size:.86em;font-weight:700;letter-spacing:.01em;white-space:normal}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:6px;font:600 1rem/1.2 var(--font-body);text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-line{border-color:var(--fg);color:var(--fg);background:transparent}
+.btn-sm{min-height:42px;padding:8px 16px;font-size:.93rem}
+.btn-lg{min-height:60px;padding:16px 30px;font-size:1.1rem}
+.btn:hover{filter:brightness(1.07)}
+.btn-line:hover{background:var(--sand);filter:none}
+
+/* decoración */
+.deco{position:absolute;width:46px;height:46px;color:var(--sand-deep);pointer-events:none}
+.deco.big{width:60px;height:60px}
+.wave{position:absolute;left:0;width:100%;height:48px;fill:var(--sand);pointer-events:none;display:block}
+.wave.top{top:-47px}
+.wave.bottom{bottom:-47px;transform:rotate(180deg)}
+.wave.sea{fill:var(--sea-wash)}
+.steps{overflow:hidden;padding-block:10px 6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.steps svg{display:block;height:64px;width:auto;max-width:none;color:#CDB486}
+.steps.end{margin-top:40px}
+
+/* encabezado y portada */
+.hero{background:linear-gradient(180deg,var(--sea-wash) 0%,var(--bg) 88%)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:block;height:46px;width:auto;max-width:60vw}
+.hero-inner{display:grid;gap:28px;padding-bottom:28px}
+.hero-media{margin-inline:calc(var(--gutter) * -1);order:0}
+.hero-media img{width:100%;aspect-ratio:5/4;object-fit:cover;object-position:45% center}
+.hero-copy{order:0;display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+.lede{font-size:1.2rem;line-height:1.5;max-width:30ch}
+.addr{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:500}
+.addr .ic{color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+/* datos rápidos */
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.fact{display:flex;flex-direction:column;gap:6px;padding:22px 12px 22px 0;border-top:1px solid var(--line);min-width:0}
+.fact .ic{color:var(--accent);width:1.7rem;height:1.7rem}
+.fact strong{font:400 3.1rem/1 var(--font-display)}
+.fact span{color:var(--muted);line-height:1.3}
+.facts{border-bottom:1px solid var(--line)}
+
+/* secciones */
+.sec{padding-block:64px;position:relative}
+.sec.alt{
+  background-color:var(--sand);
+  background-image:
+    radial-gradient(circle at 12% 18%,var(--grain) 0 1px,transparent 1.4px),
+    radial-gradient(circle at 68% 42%,var(--grain) 0 1px,transparent 1.4px),
+    radial-gradient(circle at 38% 78%,var(--grain) 0 .9px,transparent 1.3px),
+    radial-gradient(circle at 86% 88%,var(--grain) 0 1px,transparent 1.4px);
+  background-size:41px 37px,59px 53px,47px 61px,71px 67px;
+}
+.sec.sea{background:var(--sea-wash)}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;max-width:40rem}
+.sec-head p{color:var(--muted)}
+
+/* la casa */
+.casa-grid{display:grid;gap:36px}
+.casa-text{display:flex;flex-direction:column;gap:16px;max-width:36rem}
+.casa-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.rooms{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column}
+.room{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 0;border-top:1px solid var(--line)}
+.room .ic{color:var(--accent);grid-row:span 2;margin-top:2px}
+.room b{font-weight:600}
+.room span{color:var(--muted)}
+.baths{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.baths .ic{color:var(--accent);margin-top:2px}
+
+/* comodidades */
+.amen-layout{display:grid;gap:72px}
+.amen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.amen li{display:flex;flex-direction:column;gap:12px;padding:18px 16px;background:var(--surface);border:1px solid var(--line);border-radius:8px;min-width:0;font-weight:600;line-height:1.3}
+.amen .ic{color:var(--accent);width:1.9rem;height:1.9rem}
+.amen small{display:block;margin-top:2px;font-size:.84rem;font-weight:500;color:var(--muted)}
+.amen li.wide{grid-column:1 / -1;flex-direction:row;align-items:center;gap:16px}
+
+/* fotos flotantes (polaroid) */
+.aside{justify-self:end;width:min(70%,280px)}
+.polaroid{position:relative;margin:0;padding:10px 10px 0;background:#fff;box-shadow:0 12px 30px rgba(70,55,30,.20),0 2px 6px rgba(70,55,30,.14);transform:rotate(var(--rot,0deg))}
+.polaroid::before{content:"";position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:rgba(230,212,176,.85);transform:rotate(-3deg)}
+.polaroid img{width:100%;object-fit:cover}
+.polaroid.vert img{aspect-ratio:4/5}
+.polaroid.horiz img{aspect-ratio:4/3}
+.polaroid figcaption{padding:12px 4px 14px;text-align:center;font:italic 1.3rem/1.2 var(--font-display);color:var(--fg)}
+.aside[data-float]{transform:translate3d(0,var(--py,0px),0);will-change:transform}
+
+/* galería */
+.gallery{columns:2;column-gap:10px}
+.g-item{display:block;margin:0 0 10px;break-inside:avoid;border-radius:6px;overflow:hidden;background:var(--sand)}
+.g-item img{width:100%;height:auto;transition:transform .35s ease}
+.g-item:hover img{transform:scale(1.03)}
+
+/* opiniones */
+.carousel{display:grid;gap:20px}
+.car-track{position:relative;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding-block:2px 6px}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{outline-offset:2px}
+.car-track > .quote{flex:0 0 min(88%,460px);scroll-snap-align:start}
+.car-ctl{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.car-btn{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;flex:none}
+.car-btn:hover:not(:disabled){background:var(--accent);color:var(--accent-ink)}
+.car-btn:disabled{opacity:.35;cursor:default}
+.car-dots{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px}
+.car-dot{display:grid;place-items:center;width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer}
+.car-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sand-deep);transition:background .2s,transform .2s}
+.car-dot[aria-current="true"]::before{background:var(--accent);transform:scale(1.25)}
+.quote{position:relative;margin:0;padding:52px 22px 22px;background:var(--surface);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
+.quote::before{content:"\201C";position:absolute;top:6px;left:18px;font:400 4.4rem/1 var(--font-display);color:var(--accent);opacity:.55}
+.quote blockquote{margin:0;font:400 1.55rem/1.3 var(--font-display);text-wrap:pretty}
+.quote figcaption{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* servicios */
+.svc-grid{display:grid;gap:0}
+.svc{padding:24px 0;border-top:1px solid rgba(150,118,70,.28);display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc h3{display:flex;align-items:center;gap:12px;font-size:1.55rem}
+.svc h3 .ic{color:var(--accent);width:1.7rem;height:1.7rem}
+.svc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.svc li{display:flex;align-items:center;gap:12px}
+.svc li .ic{width:1.25rem;height:1.25rem;color:var(--muted)}
+.draft{display:flex;gap:12px;align-items:flex-start;margin-bottom:28px;padding:14px 16px;border:1.5px dashed rgba(150,118,70,.45);border-radius:8px;font-size:.96rem;max-width:44rem;background:rgba(255,255,255,.45)}
+
+/* estadías */
+.stays{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-block:8px 20px}
+.stay{display:flex;flex-direction:column;gap:4px;padding:22px 12px 22px 0;min-width:0}
+.stay + .stay{padding-left:16px;border-left:1px solid var(--line)}
+.stay .eyebrow{color:var(--muted);letter-spacing:.1em}
+.stay strong{font:400 2.3rem/1.05 var(--font-display);white-space:nowrap}
+.stay span{color:var(--muted)}
+.stay .when{margin-top:6px;font-weight:600;color:var(--accent)}
+.price-cta{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:36px;padding:28px 24px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.rules{margin:36px 0 0;padding:0;display:grid;gap:0}
+.rules > div{display:grid;gap:4px;padding:14px 0;border-top:1px solid var(--line)}
+.rules dt{font-weight:600}
+.rules dd{margin:0}
+.rules-title{margin-top:44px;font-size:1.8rem}
+
+/* ubicación */
+.loc-grid{display:grid;gap:64px}
+address{font-style:normal;font-size:1.2rem;line-height:1.5}
+.loc-info{display:flex;flex-direction:column;gap:20px;align-items:flex-start;min-width:0}
+.loc-info .aside{margin-top:12px;justify-self:auto;align-self:flex-start}
+.map-card{position:relative;min-height:280px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:
+  repeating-radial-gradient(circle at 70% 60%, transparent 0 22px, var(--sand-deep) 22px 23px),
+  var(--surface);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;text-decoration:none;color:var(--fg)}
+.map-card:hover .btn-line{background:var(--sand)}
+.map-card .pin{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--accent-ink)}
+.map-card .pin .ic{width:2rem;height:2rem}
+.map-card p{font-weight:600;max-width:22ch}
+
+/* preguntas */
+.faq{max-width:46rem;border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 0;font-weight:600;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font:400 1.7rem/1 var(--font-display);color:var(--accent);margin-top:-2px}
+.faq details[open] summary::after{content:"\2013"}
+.faq .ans{padding:0 0 22px;color:var(--muted);display:flex;flex-direction:column;gap:10px;max-width:40rem}
+.faq .ans a{color:var(--accent);font-weight:600}
+
+/* contacto */
+.contact-box{display:flex;flex-direction:column;align-items:flex-start;gap:20px;max-width:36rem}
+.contact-links{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.num{font-weight:600;font-size:1.1rem}
+.ig{display:inline-flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent);padding-bottom:2px}
+.ig .ic{color:var(--accent)}
+footer{padding-block:36px 110px;color:var(--muted);font-size:.93rem}
+footer .wrap{display:flex;flex-direction:column;gap:6px}
+
+/* botón flotante */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 20px 0 16px;border-radius:999px;background:var(--wa);color:var(--wa-ink);font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.28)}
+.fab:hover{filter:brightness(1.08)}
+.totop{position:fixed;right:16px;bottom:calc(16px + 56px + 12px + env(safe-area-inset-bottom,0px));z-index:49;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--accent);background:var(--surface);color:var(--accent);box-shadow:0 4px 14px rgba(0,0,0,.2);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility .25s}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:var(--accent);color:var(--accent-ink)}
+.fab .ic{width:1.7rem;height:1.7rem}
+
+/* vista ampliada */
+.lb{position:fixed;inset:0;z-index:100;display:grid;grid-template-rows:1fr auto;background:var(--lb-bg);color:var(--lb-fg);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.lb[hidden]{display:none}
+.lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:0;padding:64px 12px 8px}
+.lb-fig img{max-width:100%;max-height:calc(100vh - 210px);max-height:calc(100dvh - 210px);object-fit:contain;width:auto}
+.lb-fig figcaption{font-size:.95rem;opacity:.85;text-align:center}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 16px 16px}
+.lb-bar p{font-variant-numeric:tabular-nums;opacity:.85}
+.lb-btn{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(242,241,236,.4);background:transparent;color:var(--lb-fg);cursor:pointer}
+.lb-btn:hover{background:rgba(242,241,236,.12)}
+.lb-btn:focus-visible{outline-color:var(--lb-fg)}
+.lb-close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px}
+
+@media (min-width:700px){
+  :root{--gutter:32px}
+  .sec{padding-block:96px}
+  .logo{height:58px}
+  .deco{width:64px;height:64px}
+  .deco.big{width:88px;height:88px}
+  .hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);align-items:center;gap:56px;padding-bottom:40px}
+  .hero-media{order:2;margin-inline:0}
+  .hero-media img{aspect-ratio:4/3;border-radius:6px}
+  .hero-copy{order:1}
+  .facts ul{grid-template-columns:repeat(4,1fr)}
+  .fact{padding-right:20px}
+  .casa-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start}
+  .casa-photo{position:sticky;top:24px}
+  .casa-photo img{aspect-ratio:3/4}
+  .amen{grid-template-columns:repeat(3,1fr);gap:14px}
+  .car-track{gap:20px}
+  .car-track > .quote{flex-basis:440px}
+  .gallery{columns:3;column-gap:14px}
+  .g-item{margin-bottom:14px}
+  .svc-grid{grid-template-columns:repeat(2,1fr);column-gap:48px}
+  .stay strong{font-size:3.4rem}
+  .price-cta{flex-direction:row;align-items:center;justify-content:space-between;padding:32px}
+  .rules > div{grid-template-columns:200px 1fr;gap:24px}
+  .loc-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:56px;align-items:start}
+  .map-card{min-height:360px}
+}
+@media (min-width:900px){
+  .amen-layout{grid-template-columns:minmax(0,1fr) 290px;gap:48px;align-items:start}
+  .amen-layout .aside{position:sticky;top:28px;width:100%;justify-self:stretch}
+}
+@media (min-width:980px){
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .totop,.car-dot::before{transition:none}
+  .g-item img{transition:none}
+  .g-item:hover img{transform:none}
+  .aside[data-float]{transform:none;will-change:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="foot" viewBox="0 0 28 56"><g fill="currentColor" transform="rotate(-8 14 28)"><ellipse cx="14" cy="26" rx="9.5" ry="13"/><ellipse cx="14.5" cy="48" rx="6.3" ry="7"/><circle cx="7.5" cy="8.5" r="3.6"/><circle cx="14.5" cy="5" r="2.7"/><circle cx="20" cy="6.8" r="2.4"/><circle cx="24" cy="11.5" r="2.1"/><circle cx="25.5" cy="17.5" r="1.8"/></g></symbol>
+    <symbol id="paw-dog" viewBox="0 0 30 34"><g fill="currentColor"><path d="M15 14.5c-5.2 0-9.6 5-9.6 9.2 0 3.2 2.7 4.5 5.3 3.8 1.5-.4 2.7-1 4.3-1s2.8.6 4.3 1c2.6.7 5.3-.6 5.3-3.8 0-4.2-4.4-9.2-9.6-9.2z"/><ellipse cx="5.2" cy="12.2" rx="2.9" ry="3.9" transform="rotate(-22 5.2 12.2)"/><ellipse cx="11.2" cy="5.8" rx="3.1" ry="4.2" transform="rotate(-6 11.2 5.8)"/><ellipse cx="18.8" cy="5.8" rx="3.1" ry="4.2" transform="rotate(6 18.8 5.8)"/><ellipse cx="24.8" cy="12.2" rx="2.9" ry="3.9" transform="rotate(22 24.8 12.2)"/></g></symbol>
+    <symbol id="shell-snail" viewBox="0 0 48 48"><g><path fill="currentColor" d="M6 38c0-3 3-4 8-4h22c5 0 8 1 8 4s-4 4-8 4H14c-5 0-8-1-8-4z"/><circle cx="24" cy="21" r="17" fill="currentColor"/><path d="M24.4 22.2 L24.5 22.3 L24.6 22.5 L24.6 22.8 L24.5 23 L24.4 23.3 L24.1 23.5 L23.8 23.7 L23.5 23.8 L23.1 23.9 L22.7 23.8 L22.2 23.7 L21.8 23.4 L21.4 23.1 L21.1 22.7 L20.8 22.1 L20.7 21.5 L20.6 20.9 L20.7 20.2 L21 19.6 L21.3 18.9 L21.8 18.3 L22.5 17.8 L23.2 17.4 L24 17.2 L24.9 17.1 L25.9 17.2 L26.8 17.4 L27.7 17.9 L28.5 18.5 L29.2 19.3 L29.8 20.2 L30.2 21.2 L30.5 22.4 L30.5 23.6 L30.2 24.8 L29.8 25.9 L29.1 27 L28.3 28 L27.2 28.9 L25.9 29.5 L24.6 29.9 L23.1 30.1 L21.7 30 L20.2 29.6 L18.8 28.9 L17.5 28 L16.4 26.8 L15.5 25.5 L14.8 23.9 L14.4 22.2 L14.3 20.5 L14.6 18.7 L15.2 17 L16.1 15.4 L17.3 13.9 L18.7 12.7 L20.4 11.7 L22.3 11.1 L24.3 10.8 L26.3 10.8 L28.4 11.2 L30.3 12 L32.1 13.2 L33.7 14.7 L35 16.5 L36 18.5 L36.6 20.7 L36.9 22.9 L36.7 25.3 L36 27.6 L35 29.7 L33.6 31.7 L31.8 33.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -1)"/></g></symbol>
+    <symbol id="shell-scallop" viewBox="0 0 48 48"><path fill="currentColor" d="M24 43 L45.8 27.1 A 5.4 5.4 0 0 0 40.8 21.9 A 5.4 5.4 0 0 0 34.6 18.2 A 5.4 5.4 0 0 0 27.6 16.2 A 5.4 5.4 0 0 0 20.4 16.2 A 5.4 5.4 0 0 0 13.4 18.2 A 5.4 5.4 0 0 0 7.2 21.9 A 5.4 5.4 0 0 0 2.2 27.1 Z"/><g stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"><path d="M24 42 L40.8 21.9" /><path d="M24 42 L34.6 18.2" /><path d="M24 42 L27.6 16.2" /><path d="M24 42 L20.4 16.2" /><path d="M24 42 L13.4 18.2" /><path d="M24 42 L7.2 21.9" /></g><path fill="currentColor" d="M17 42h14l-2.5 4.5h-9z"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8"/></symbol>
+    <symbol id="i-grill" viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 0 14 0M8 8c0-2 1.5-2 1.5-4M12 8c0-2 1.5-2 1.5-4M16 8c0-2 1.5-2 1.5-4M8.5 18.5L7 22M15.5 18.5L17 22"/></symbol>
+    <symbol id="i-radiant" viewBox="0 0 24 24"><path d="M3 21h18M6 17c0-3 3-3 3-6s-3-3-3-6M12 17c0-3 3-3 3-6s-3-3-3-6M18 17c0-3 3-3 3-6"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-9z"/></symbol>
+    <symbol id="i-pot" viewBox="0 0 24 24"><path d="M5 10h14v7a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3zM3 10h18M9 7V5M15 7V5"/></symbol>
+    <symbol id="i-washer" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13.5" r="4"/><path d="M7 6.5h2"/></symbol>
+    <symbol id="i-stove" viewBox="0 0 24 24"><path d="M12 4V2M6 4h12v17H6zM6 9h12"/><rect x="9" y="12" width="6" height="5" rx="1"/></symbol>
+    <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 3c.8 3 4 4 4 7.5a4 4 0 0 1-8 0c0-1.6.8-2.6 1.6-3.3.1 1.6.8 2.4 1.6 2.4C11 7.8 10.7 5.2 12 3zM4 21l16-3M4 18l16 3"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><path d="M3 9c3-5 15-5 18 0M4 13h16M6 13v7M18 13v7"/></symbol>
+    <symbol id="i-ac" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="8" rx="2"/><path d="M7 9h10M7 16c0 2 1 3 1 4.5M12 16c0 2 1 3 1 4.5M17 16c0 2 1 3 1 4.5"/></symbol>
+    <symbol id="i-clean" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="6.5" cy="11" r="1.7"/><circle cx="10" cy="6.5" r="1.7"/><circle cx="14.5" cy="6.5" r="1.7"/><circle cx="18" cy="11" r="1.7"/><path d="M12 12c-3 0-5 3-5 5.2 0 1.5 1.3 2 2.7 1.6.9-.3 1.5-.5 2.3-.5s1.4.2 2.3.5c1.4.4 2.7-.1 2.7-1.6C17 15 15 12 12 12z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 19.5c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><circle cx="17" cy="7" r="2.5"/></symbol>
+    <symbol id="i-golf" viewBox="0 0 24 24"><path d="M8 21V3l9 4-9 4M5 21h6"/><circle cx="17" cy="19" r="1.5"/></symbol>
+    <symbol id="i-tennis" viewBox="0 0 24 24"><ellipse cx="10" cy="9" rx="5" ry="6.5" transform="rotate(-35 10 9)"/><path d="M13.7 14.3L20 21"/></symbol>
+    <symbol id="i-paddle" viewBox="0 0 24 24"><circle cx="10" cy="9" r="6"/><path d="M14.3 13.3l5.7 6.7M8 7.5h.01M11 7h.01M9 10.5h.01M12 10h.01"/></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4h-4.4l-1.3-4zM12 8V3M15.5 10.5l5-1.5M14.2 14.5l3 4M9.8 14.5l-3 4M8.5 10.5l-5-1.5"/></symbol>
+    <symbol id="i-horseshoe" viewBox="0 0 24 24"><path d="M6 21V11a6 6 0 0 1 12 0v10M6 18h3M15 18h3M6 14h.01M18 14h.01"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></symbol>
+    <symbol id="i-club" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+    <symbol id="i-kids" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.5 2.2 2 3.5 2s2.5-.5 3.5-2M9 9.5h.01M15 9.5h.01"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1-3 4-3 8h3"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h10l2-8H6.5"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.5c2 .8 3 2.8 3 5.5"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.7"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24"><path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zM6 12V6a2 2 0 0 1 4 0M7 20l-1 2M17 20l1 2"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01"/></symbol>
+  </defs>
+</svg>
+
+<div class="hero" id="inicio">
+  <header class="top wrap">
+    <img class="logo" src="img/logo.png" width="720" height="281" alt="Casa en Costa">
+    <a class="btn btn-wa btn-sm" href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">
+      <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Consultar
+    </a>
+  </header>
+
+  <!-- 1. Portada -->
+  <section>
+    <div class="wrap hero-inner">
+      <div class="hero-media">
+        <img src="img/dsc_0202.jpg" width="1800" height="1197" fetchpriority="high" alt="Casa en Costa vista desde el parque, con la galería y la parrilla">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Costa Esmeralda · Partido de la Costa</p>
+        <h1>Casa en <em>Costa</em></h1>
+        <p class="lede">Una casa para 8 personas con parrilla, parque y todos los servicios del barrio.</p>
+        <p class="addr"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Barrio Senderos 3, lote 447</p>
+        <div class="actions">
+          <a class="btn btn-wa btn-lg" href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Consultar disponibilidad
+          </a>
+          <a class="btn btn-line btn-lg" href="#fotos">Ver fotos</a>
+        </div>
+      </div>
+    </div>
+    <div class="steps" aria-hidden="true">
+      <svg viewBox="0 0 2352 66" width="2352" height="66" role="presentation"><use href="#foot" width="28" height="56" transform="translate(59.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(109.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(159.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(205.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(238.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(271.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(304.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(385.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(435.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(485.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(531.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(564.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(597.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(630.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(711.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(761.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(811.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(857.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(890.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(923.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(956.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1037.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1087.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1137.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1183.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1216.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1249.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1282.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1363.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1413.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1463.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1509.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1542.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1575.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1608.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1689.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1739.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1789.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1835.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1868.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1901.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1934.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2015.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2065.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2115.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2161.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2194.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2227.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2260.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2341.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/></svg>
+    </div>
+  </section>
+</div>
+
+<main>
+  <!-- 2. Datos rápidos -->
+  <section class="facts" aria-label="Datos rápidos">
+    <div class="wrap">
+      <ul>
+        <li class="fact"><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg><strong>8</strong><span>personas</span></li>
+        <li class="fact"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg><strong>3</strong><span>habitaciones</span></li>
+        <li class="fact"><svg class="ic" aria-hidden="true"><use href="#i-bath"/></svg><strong>2</strong><span>baños</span></li>
+        <li class="fact"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg><strong>Sí</strong><span>se aceptan mascotas</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. La casa -->
+  <section class="sec" id="casa">
+    <div class="wrap casa-grid">
+      <div class="casa-text">
+        <p class="eyebrow">La casa</p>
+        <h2>Una casa para compartir</h2>
+        <p>Casa en Costa está en Barrio Senderos 3, dentro de Costa Esmeralda. Tiene lugar para 8 personas, tres habitaciones, living y comedor amplios, cocina completa y parrilla para juntarse a comer.</p>
+        <p>Los ventanales miran al parque y a la galería. Afuera tenés una galería con mesa y un fogón en el parque, así que la casa se disfruta tanto adentro como afuera.</p>
+        <p>Así se reparten las camas y los baños:</p>
+        <ul class="rooms">
+          <li class="room"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg><b>Suite</b><span>Cama de 180 x 200 cm, con baño en suite</span></li>
+          <li class="room"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg><b>Habitación con tres camas simples</b><span>3 camas simples</span></li>
+          <li class="room"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg><b>Habitación con cama simple y matrimonial</b><span>1 cama simple y 1 cama matrimonial</span></li>
+        </ul>
+        <div class="baths">
+          <svg class="ic" aria-hidden="true"><use href="#i-bath"/></svg>
+          <p><b>2 baños:</b> el de la suite y un baño completo adicional.</p>
+        </div>
+      </div>
+      <div class="casa-photo">
+        <img src="img/img_9416.jpg" width="1350" height="1800" loading="lazy" decoding="async" alt="Living y comedor de la casa, con ventanales hacia la galería">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Comodidades -->
+  <section class="sec alt" id="comodidades">
+    <svg class="wave top" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="wave bottom" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="deco" style="top:18px;right:16px;transform:rotate(14deg)" aria-hidden="true"><use href="#shell-scallop"/></svg>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Qué tiene</p>
+        <h2>Comodidades</h2>
+      </div>
+      <div class="amen-layout">
+        <ul class="amen">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>WiFi de fibra óptica</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-grill"/></svg>Parrilla</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-radiant"/></svg>Calefacción por losa radiante</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>Gas natural</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-pot"/></svg><span>Cocina completa<small>Equipada con vajilla y electrodomésticos</small></span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-washer"/></svg>Lavarropas</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-stove"/></svg><span>Estufa a leña<small>Leña no incluida</small></span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-fire"/></svg><span>Fogón en el parque<small>Leña no incluida</small></span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-table"/></svg>Galería con mesa</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-ac"/></svg>Aire acondicionado</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg>Se aceptan mascotas</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-club"/></svg>Acceso a todos los servicios del barrio</li>
+          <li class="wide"><svg class="ic" aria-hidden="true"><use href="#i-clean"/></svg><span>Servicio de limpieza durante la estadía<small>Con costo</small></span></li>
+        </ul>
+        <div class="aside" data-float="0.1">
+          <figure class="polaroid vert" style="--rot:3deg">
+            <img src="img/dsc_0187-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Fogón con bancos y troncos en el parque de la casa">
+            <figcaption>El fogón, en el parque</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Galería -->
+  <section class="sec" id="fotos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Mirá la casa</p>
+        <h2>Fotos</h2>
+        <p>Tocá una foto para verla en grande.</p>
+      </div>
+      <div class="gallery">
+        <a class="g-item" href="img/dsc_0139.jpg" data-alt="Suite con cama de 180 x 200 cm"><img src="img/dsc_0139-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Suite con cama de 180 x 200 cm"></a>
+        <a class="g-item" href="img/dsc_0169.jpg" data-alt="Frente de la casa, vista de costado"><img src="img/dsc_0169-t.jpg" width="900" height="598" loading="lazy" decoding="async" alt="Frente de la casa, vista de costado"></a>
+        <a class="g-item" href="img/img_9420.jpg" data-alt="Cocina completa con mesada y ventanas corridas"><img src="img/img_9420-t.jpg" width="506" height="900" loading="lazy" decoding="async" alt="Cocina completa con mesada y ventanas corridas"></a>
+        <a class="g-item" href="img/dsc_0160.jpg" data-alt="Living con sillón, estufa a leña y ventanales al parque"><img src="img/dsc_0160-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Living con sillón, estufa a leña y ventanales al parque"></a>
+        <a class="g-item" href="img/img_9418.jpg" data-alt="Galería cubierta con mesa larga"><img src="img/img_9418-t.jpg" width="675" height="900" loading="lazy" decoding="async" alt="Galería cubierta con mesa larga"></a>
+        <a class="g-item" href="img/dsc_0157.jpg" data-alt="Living con vista a la parrilla y la galería"><img src="img/dsc_0157-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Living con vista a la parrilla y la galería"></a>
+        <a class="g-item" href="img/dsc_0161.jpg" data-alt="Pasillo interior con revestimiento de madera"><img src="img/dsc_0161-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Pasillo interior con revestimiento de madera"></a>
+        <a class="g-item" href="img/dsc_0181.jpg" data-alt="Costado de la casa con terraza y parque"><img src="img/dsc_0181-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Costado de la casa con terraza y parque"></a>
+        <a class="g-item" href="img/dsc_0137.jpg" data-alt="Escalera interior"><img src="img/dsc_0137-t.jpg" width="598" height="900" loading="lazy" decoding="async" alt="Escalera interior"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opiniones de huéspedes -->
+  <section class="sec sea" id="opiniones">
+    <svg class="wave top sea" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Opiniones</p>
+        <h2>Lo que dicen los huéspedes</h2>
+      </div>
+      <div class="carousel" id="opin" role="region" aria-roledescription="carrusel" aria-label="Opiniones de huéspedes">
+        <div class="car-track" id="car-track" tabindex="0">
+            <figure class="quote">
+              <blockquote>Nos hospedamos en Casa en Costa y fue una maravilla 🙌 Amplia, luminosa y cómoda!</blockquote>
+            <figcaption>Comentario de un huésped</figcaption>
+          </figure>
+            <figure class="quote">
+              <blockquote>Hermosa!! Vamos todos los años y Fabian nos espera con una sorpresa diferente!</blockquote>
+            <figcaption>Comentario de un huésped</figcaption>
+          </figure>
+            <figure class="quote">
+              <blockquote>Muy comoda! Cada vez que vamos encontramos algo nuevo. Esperamos volver!</blockquote>
+            <figcaption>Comentario de un huésped</figcaption>
+          </figure>
+        </div>
+        <div class="car-ctl">
+          <button class="car-btn" id="car-prev" type="button" aria-label="Opinión anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+          <div class="car-dots" id="car-dots"></div>
+          <button class="car-btn" id="car-next" type="button" aria-label="Opinión siguiente"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Servicios de Costa Esmeralda -->
+  <section class="sec alt" id="servicios">
+    <svg class="wave top" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="wave bottom" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="deco big" style="top:14px;right:14px;transform:rotate(-8deg)" aria-hidden="true"><use href="#shell-snail"/></svg>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">El barrio</p>
+        <h2>Servicios de Costa Esmeralda</h2>
+        <p>Alquilando la casa tenés acceso a todos los servicios del barrio.</p>
+      </div>
+      <div class="svc-grid">
+        <section class="svc">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Seguridad</h3>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Seguridad y acceso controlado</li>
+          </ul>
+        </section>
+        <section class="svc">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-wave"/></svg>Playa, club y bienestar</h3>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-wave"/></svg>Playa y beach club</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-club"/></svg>Club house</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-dumbbell"/></svg>Gimnasio y spa</li>
+          </ul>
+        </section>
+        <section class="svc">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg>Deportes</h3>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-golf"/></svg>Golf</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-tennis"/></svg>Tenis</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-paddle"/></svg>Paddle</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg>Fútbol</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-horseshoe"/></svg>Hípica y equitación</li>
+          </ul>
+        </section>
+        <section class="svc">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-kids"/></svg>Para los chicos</h3>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-kids"/></svg>Actividades y escuelas deportivas para chicos</li>
+          </ul>
+        </section>
+        <section class="svc">
+          <h3><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg>Compras y gastronomía</h3>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg>Centro comercial</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-fork"/></svg>Restaurantes</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg>Supermercado</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Estadías y tarifas -->
+  <section class="sec" id="estadias">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Fechas y precios</p>
+        <h2>Estadías y tarifas</h2>
+        <p>La casa se alquila todo el año.</p>
+      </div>
+      <div class="stays">
+        <div class="stay"><span class="eyebrow">Temporada alta</span><strong>10 noches</strong><span>estadía mínima</span><span class="when">Diciembre a marzo</span></div>
+        <div class="stay"><span class="eyebrow">Temporada baja</span><strong>2 noches</strong><span>estadía mínima</span><span class="when">Fuera de temporada alta</span></div>
+      </div>
+
+      <div class="price-cta">
+        <h3>Consultá tarifas y disponibilidad</h3>
+        <a class="btn btn-wa btn-lg" href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">
+          <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Escribinos por WhatsApp
+        </a>
+      </div>
+
+      <h3 class="rules-title">Reserva y condiciones</h3>
+      <dl class="rules">
+        <div><dt>Cómo reservar</dt><dd>La reserva se hace por WhatsApp. Por ahí también te pasamos la seña, la política de cancelación y el reglamento de la casa.</dd></div>
+        <div><dt>Check-in</dt><dd>14:00 hs.</dd></div>
+        <div><dt>Check-out</dt><dd>10:00 hs.</dd></div>
+        <div><dt>Ropa blanca</dt><dd>La casa no incluye servicio de ropa blanca.</dd></div>
+        <div><dt>Leña</dt><dd>La estufa a leña y el fogón están para usar. La leña no está incluida.</dd></div>
+        <div><dt>Mascotas</dt><dd>Tienen que tener chapa identificatoria y llevarse siempre atadas en los sectores comunes del barrio, según las normas del barrio.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 8. Ubicación -->
+  <section class="sec alt" id="ubicacion">
+    <svg class="wave top" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="wave bottom" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="deco" style="top:18px;right:16px;transform:rotate(-18deg)" aria-hidden="true"><use href="#shell-scallop"/></svg>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Dónde estamos</p>
+        <h2>Ubicación</h2>
+      </div>
+      <div class="loc-grid">
+        <div class="loc-info">
+          <address>
+            Barrio Senderos 3, lote 447<br>
+            Costa Esmeralda, Partido de la Costa<br>
+            Buenos Aires, Argentina
+          </address>
+          <div>
+            <p class="eyebrow" style="margin-bottom:6px">Cómo llegar</p>
+            <p>Se llega por la Ruta 11 de la provincia de Buenos Aires, a 15 km de Pinamar.</p>
+          </div>
+          <div class="aside" data-float="0.12">
+            <figure class="polaroid horiz" style="--rot:-3deg">
+              <img src="img/dsc_0164-t.jpg" width="900" height="598" loading="lazy" decoding="async" alt="Frente de Casa en Costa, con el parque delante">
+              <figcaption>Así es el frente</figcaption>
+            </figure>
+          </div>
+        </div>
+        <a class="map-card" href="https://maps.app.goo.gl/N4aNaLEQgVAr6koy5" target="_blank" rel="noopener">
+          <span class="pin"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <p>Barrio Senderos 3, lote 447, Costa Esmeralda</p>
+          <span class="btn btn-line btn-sm">Abrir en Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Preguntas frecuentes -->
+  <section class="sec" id="preguntas">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Dudas frecuentes</p>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Cuántas personas entran y cómo están distribuidas las camas?</summary>
+          <div class="ans">
+            <p>Entran 8 personas. La suite tiene una cama de 180 x 200 cm y baño en suite. Otra habitación tiene tres camas simples, y la tercera tiene una cama simple y una cama matrimonial.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Dónde queda la casa?</summary>
+          <div class="ans">
+            <p>En Barrio Senderos 3, lote 447, dentro de Costa Esmeralda, en el Partido de la Costa, provincia de Buenos Aires.</p>
+            <p>Se llega por la Ruta 11, a 15 km de Pinamar. Mirá la sección <a href="#ubicacion">Ubicación</a>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Se aceptan mascotas?</summary>
+          <div class="ans">
+            <p>Sí, se aceptan mascotas. Tienen que tener chapa identificatoria y llevarse siempre atadas en los sectores comunes del barrio, según las normas del barrio.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Hay que llevar ropa blanca?</summary>
+          <div class="ans">
+            <p>Sí. La casa no incluye servicio de ropa blanca (por ejemplo, sábanas y toallas), así que tenés que llevar la tuya.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Qué incluye la cocina?</summary>
+          <div class="ans">
+            <p>Es una cocina completa y está totalmente equipada: vajilla, microondas, cafetera de cápsulas, heladera con freezer, tostadora y pava eléctrica.</p>
+            <p>La casa también tiene gas natural y lavarropas.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Qué calefacción tiene?</summary>
+          <div class="ans">
+            <p>La casa tiene calefacción por losa radiante. Además hay una estufa a leña para usar; la leña no está incluida.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Hay fogón, galería y aire acondicionado?</summary>
+          <div class="ans">
+            <p>Sí. Hay un fogón en el parque, una galería con mesa y aire acondicionado, todo disponible para usar. La leña para el fogón y la estufa no está incluida.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Hay WiFi?</summary>
+          <div class="ans">
+            <p>Sí, hay WiFi de fibra óptica.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Qué estadía mínima hay en temporada alta y baja?</summary>
+          <div class="ans">
+            <p>En temporada alta, de diciembre a marzo, la estadía mínima es de 10 noches. En temporada baja es de 2 noches. La casa se alquila todo el año.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta alquilar?</summary>
+          <div class="ans">
+            <p>No publicamos precios en la página. Consultá tarifas y disponibilidad por WhatsApp.</p>
+            <p><a href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">Escribinos por WhatsApp</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Qué servicios tiene el barrio?</summary>
+          <div class="ans">
+            <p>La casa tiene acceso a todos los servicios de Costa Esmeralda. Por ejemplo: seguridad y acceso controlado, playa y beach club, club house, golf, tenis, paddle, fútbol, hípica, gimnasio y spa, actividades para chicos, centro comercial, restaurantes y supermercado.</p>
+            <p>Mirá el detalle en <a href="#servicios">Servicios de Costa Esmeralda</a>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Hay servicio de limpieza durante la estadía?</summary>
+          <div class="ans">
+            <p>Sí, se puede contratar servicio de limpieza durante la estadía, con costo.</p>
+            <p><a href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">Consultanos por WhatsApp</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Cómo hago la reserva?</summary>
+          <div class="ans">
+            <p>La reserva se hace por WhatsApp. Por ahí también te pasamos la seña, la política de cancelación y el reglamento de la casa.</p>
+            <p><a href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">Escribinos por WhatsApp</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>¿A qué hora son el check-in y el check-out?</summary>
+          <div class="ans">
+            <p>El check-in es a las 14:00 hs y el check-out a las 10:00 hs.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Contacto -->
+  <section class="sec sea" id="contacto">
+    <svg class="wave top sea" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24C180 4 360 44 540 24S900 4 1080 24 1300 40 1440 20V48H0Z"/></svg>
+    <svg class="deco big" style="top:16px;right:16px;transform:rotate(10deg)" aria-hidden="true"><use href="#shell-snail"/></svg>
+    <div class="wrap">
+      <div class="contact-box">
+        <p class="eyebrow">Reservá</p>
+        <h2>¿Te gustó la casa? Consultá tus fechas</h2>
+        <p class="muted">Escribinos por WhatsApp y te pasamos tarifas y disponibilidad.</p>
+        <div class="contact-links">
+          <a class="btn btn-wa btn-lg" href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Consultar por WhatsApp
+          </a>
+          <p class="num">+54 223 594-3066</p>
+          <a class="ig" href="https://www.instagram.com/casaencosta/" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg>@casaencosta
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="steps end" aria-hidden="true">
+      <svg viewBox="0 0 2335 66" width="2335" height="66" role="presentation"><use href="#paw-dog" width="30" height="34" transform="translate(33.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(66.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(99.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(132.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(213.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(263.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(313.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(359.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(392.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(425.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(458.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(539.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(589.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(639.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(685.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(718.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(751.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(784.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(865.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(915.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(965.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1011.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1044.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1077.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1110.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1191.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1241.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1291.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1337.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1370.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1403.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1436.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1517.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1567.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1617.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1663.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1696.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1729.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1762.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1843.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1893.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(1943.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(1989.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2022.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2055.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2088.9 33) rotate(90) rotate(9 12.3 13.9) scale(0.82)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2169.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2219.2 60.6) rotate(90) scale(-.95 .95)" opacity=".95"/><use href="#foot" width="28" height="56" transform="translate(2269.2 4) rotate(90) scale(.95)" opacity=".95"/><use href="#paw-dog" width="30" height="34" transform="translate(2315.9 8) rotate(90) rotate(-9 12.3 13.9) scale(0.82)" opacity=".95"/></svg>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Casa en Costa</b> · Alquiler vacacional en Costa Esmeralda</p>
+    <p>Barrio Senderos 3, lote 447 · Partido de la Costa, Buenos Aires, Argentina</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/542235943066?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Casa%20en%20Costa%20y%20quisiera%20consultar%20disponibilidad%20y%20tarifas." target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+  <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Consultar
+</a>
+<a class="totop" id="totop" href="#inicio" aria-label="Volver al inicio"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos" hidden>
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar galería"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <figure class="lb-fig">
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <div class="lb-bar">
+    <button class="lb-btn" id="lb-prev" type="button" aria-label="Foto anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+    <p id="lb-count" aria-live="polite"></p>
+    <button class="lb-btn" id="lb-next" type="button" aria-label="Foto siguiente"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* vista ampliada de la galería */
+  var items = Array.prototype.slice.call(document.querySelectorAll('.g-item'));
+  var lb = document.getElementById('lb');
+  var img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap');
+  var count = document.getElementById('lb-count');
+  var btnClose = document.getElementById('lb-close');
+  var btnPrev = document.getElementById('lb-prev');
+  var btnNext = document.getElementById('lb-next');
+  var current = 0;
+  var lastFocus = null;
+
+  function preload(i) {
+    var n = (i + items.length) % items.length;
+    var p = new Image();
+    p.src = items[n].getAttribute('href');
+  }
+  function show(i) {
+    current = (i + items.length) % items.length;
+    var a = items[current];
+    img.src = a.getAttribute('href');
+    img.alt = a.getAttribute('data-alt') || '';
+    cap.textContent = a.getAttribute('data-alt') || '';
+    count.textContent = (current + 1) + ' / ' + items.length;
+    preload(current + 1);
+    preload(current - 1);
+  }
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.hidden = false;
+    document.documentElement.classList.add('lb-open');
+    btnClose.focus();
+  }
+  function close() {
+    lb.hidden = true;
+    document.documentElement.classList.remove('lb-open');
+    img.removeAttribute('src');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  items.forEach(function (a, i) {
+    a.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+  });
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', function () { show(current - 1); });
+  btnNext.addEventListener('click', function () { show(current + 1); });
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target.classList.contains('lb-fig')) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(current - 1);
+    else if (e.key === 'ArrowRight') show(current + 1);
+    else if (e.key === 'Tab') {
+      var f = [btnClose, btnPrev, btnNext];
+      var idx = f.indexOf(document.activeElement);
+      e.preventDefault();
+      if (e.shiftKey) f[(idx <= 0 ? f.length : idx) - 1].focus();
+      else f[(idx + 1) % f.length].focus();
+    }
+  });
+
+  var startX = null;
+  lb.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 50) show(dx < 0 ? current + 1 : current - 1);
+  }, { passive: true });
+
+  /* carrusel de opiniones */
+  var track = document.getElementById('car-track');
+  if (track) {
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsBox = document.getElementById('car-dots');
+    var cPrev = document.getElementById('car-prev');
+    var cNext = document.getElementById('car-next');
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dots = slides.map(function (s, i) {
+      s.setAttribute('role', 'group');
+      s.setAttribute('aria-roledescription', 'opinión');
+      s.setAttribute('aria-label', (i + 1) + ' de ' + slides.length);
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'car-dot';
+      b.setAttribute('aria-label', 'Ir a la opinión ' + (i + 1));
+      b.addEventListener('click', function () { go(i); });
+      dotsBox.appendChild(b);
+      return b;
+    });
+    var go = function (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft, behavior: calm ? 'auto' : 'smooth' });
+    };
+    var cur = function () {
+      var l = track.scrollLeft, max = track.scrollWidth - track.clientWidth;
+      if (l >= max - 2) return slides.length - 1;
+      var best = 0, bd = Infinity;
+      slides.forEach(function (s, i) { var d = Math.abs(s.offsetLeft - l); if (d < bd) { bd = d; best = i; } });
+      return best;
+    };
+    var sync = function () {
+      var l = track.scrollLeft, max = track.scrollWidth - track.clientWidth, c = cur();
+      cPrev.disabled = l <= 2;
+      cNext.disabled = l >= max - 2;
+      dots.forEach(function (d, i) { if (i === c) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+    };
+    cPrev.addEventListener('click', function () { go(cur() - 1); });
+    cNext.addEventListener('click', function () { go(cur() + 1); });
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(sync); }, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
+  /* botón para volver al inicio */
+  var totop = document.getElementById('totop');
+  if (totop) {
+    var toggleTop = function () { totop.classList.toggle('show', (window.pageYOffset || document.documentElement.scrollTop) > 320); };
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+    totop.addEventListener('click', function (e) {
+      e.preventDefault();
+      var still0 = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: still0 ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* fotos que flotan al hacer scroll (en pantallas grandes la del fogón queda fija a un costado) */
+  var floats = Array.prototype.slice.call(document.querySelectorAll('[data-float]'));
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (floats.length && !still) {
+    var queued = false;
+    var update = function () {
+      queued = false;
+      var vh = window.innerHeight;
+      floats.forEach(function (el) {
+        if (window.getComputedStyle(el).position === 'sticky') { el.style.removeProperty('--py'); return; }
+        var parent = el.offsetParent || document.body;
+        var top = parent.getBoundingClientRect().top + el.offsetTop;
+        var center = top + el.offsetHeight / 2 - vh / 2;
+        if (top > vh + 300 || top + el.offsetHeight < -300) return;
+        var speed = parseFloat(el.getAttribute('data-float')) || 0.1;
+        var py = Math.max(-28, Math.min(28, -center * speed));
+        el.style.setProperty('--py', py.toFixed(1) + 'px');
+      });
+    };
+    var onScroll = function () { if (!queued) { queued = true; window.requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+})();
+</script>
+</body>
+</html>
